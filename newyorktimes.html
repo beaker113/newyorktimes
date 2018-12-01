@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        // var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+        // url += '?' + $.param({
+        //     'api-key': "9311d8423c334ea68ebbc3f30cbd2bbc"
+        // });
+        // $.ajax({
+        //     url: url,
+        //     method: 'GET',
+        // }).done(function (result) {
+        //     console.log(result);
+        // }).fail(function (err) {
+        //     throw err;
+    
+        // });
+        
+            var term = $("#searchTerm").val();
+            var records = $("#number").val();
+            var start = $("#sYear").val();
+            var end = $("#eYear").val();
+
+        axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json?" + term + records + start + end, {
+            params: {
+                'api-key': "9311d8423c334ea68ebbc3f30cbd2bbc"
+            }
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (err) {
+                console.error(err)
+            })
+
+
+        //     var search = 
+
+    </script>
+
+</body>
+
+</html>
